@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".iMuridActivity">
+
+    <ImageButton
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="back2"
+        android:background="@color/white"
+        android:src="@drawable/ic_vector_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/ic_topat"
+        android:layout_width="48dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_topat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"/>
+
+    <RelativeLayout
+        android:layout_width="348dp"
+        android:layout_height="632dp"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/rec_pink"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ic_topat">
+
+        <View
+            android:id="@+id/vmurid"
+            android:layout_width="345dp"
+            android:layout_height="565dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/rec_upink" />
+
+        <TextView
+            android:id="@+id/tvPS"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/vmurid"
+            android:layout_alignEnd="@+id/vmurid"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="33dp"
+            android:fontFamily="@font/lato_black"
+            android:text="Murid Sekolah"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
+
+        <RelativeLayout
+            android:id="@+id/rlNIK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPS"
+            android:layout_alignStart="@id/vmurid"
+            android:layout_alignEnd="@id/vmurid"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="23dp">
+
+            <TextView
+                android:id="@+id/tvNIS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="NIS"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/etNISMurid"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@id/tvNIS"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rec_white"
+                android:hint="ketik disini"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlNIK"
+            android:layout_alignStart="@id/vmurid"
+            android:layout_alignEnd="@id/vmurid"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="23dp">
+
+            <TextView
+                android:id="@+id/tvNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="Nama"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/etNMMurid"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@id/tvNama"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rec_white"
+                android:hint="ketik disini"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlKelas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlNama"
+            android:layout_alignStart="@id/vmurid"
+            android:layout_alignEnd="@id/vmurid"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="23dp">
+
+            <TextView
+                android:id="@+id/tvKelas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="Kelas"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/etKLSMurid"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@id/tvKelas"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rec_white"
+                android:hint="ketik disini"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnMurid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlKelas"
+            android:layout_alignEnd="@id/vmurid"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="23dp"
+            android:backgroundTint="@color/yellow"
+            android:hint="Masuk"
+            android:textColorHint="@color/white"
+            android:onClick="btnMSK"/>
+
+        <View
+            android:layout_width="185dp"
+            android:layout_height="200dp"
+            android:layout_alignStart="@+id/vmurid"
+            android:layout_alignBottom="@+id/vmurid"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/ic_murid" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

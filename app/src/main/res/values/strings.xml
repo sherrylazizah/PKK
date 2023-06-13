@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Top4t</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notes">Notes</string>
+    <string name="title_payment">Payment</string>
+    <string name="lorem">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface</string>
+    <string name="title_activity_side_bar">SideBarActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="head_1">SERAGAM DAN ATRIBUT SEKOLAH</string>
+    <string name="head_2">ALAT TULIS SEKOLAH (ATK)</string>
+    <string name="head_3">JAJANAN MURAH MERIAH</string>
+
+    <string name="jenis_1">Seragam Sekolah</string>
+    <string name="jenis_2">Atribut</string>
+    <string name="jenis_3">Atribut / Seragam</string>
+
+    <string name="nama_brng1">Bet Lokasi</string>
+    <string name="nama_brng2">Bet Kelas</string>
+    <string name="nama_brng3">Logo Sekolah</string>
+
+    <string name="status">Sisa uang yang belum dibayar</string>
+    <string name="status1">Telah dibayar</string>
+    <string name="title_activity_sidebar">sidebar</string>
+
+
+</resources>
