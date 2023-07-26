@@ -137,7 +137,8 @@
                 android:paddingLeft="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/grey"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:importantForAutofill="no" />
 
         </RelativeLayout>
 
