@@ -13,6 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import twoup.top4t.com.R;
 import twoup.top4t.com.atk;
 import twoup.top4t.com.atribut;
@@ -21,6 +24,7 @@ import twoup.top4t.com.makanan;
 import twoup.top4t.com.profile;
 
 public class HomeFragment extends Fragment {
+
 
     private FragmentHomeBinding binding;
 

@@ -1,5 +1,6 @@
 package twoup.top4t.com;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,10 +10,19 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
-    Button daftar;
-    EditText usern, passw, email;
+
+    private FirebaseAuth auth;
+    private Button daftar;
+    private EditText signupuser, signuppass, signupemail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,25 +32,45 @@ public class SignUpActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_sign_up);
-        daftar = (Button) findViewById(R.id.btn_daftar);
-        usern = (EditText) findViewById(R.id.etUSERd);
-        passw = (EditText) findViewById(R.id.etPASSd);
-        email = (EditText) findViewById(R.id.etEmaild);
+
+        auth = FirebaseAuth.getInstance();
+        daftar = findViewById(R.id.btn_daftar);
+        signupuser = findViewById(R.id.etUSERd);
+        signuppass = findViewById(R.id.etPASSd);
+        signupemail = findViewById(R.id.etEmaild);
 
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (usern.getText().toString().trim().length() == 0) {
-                    usern.setError("masukan username");
-                } else if( passw.getText().toString().trim().length() == 0) {
-                    passw.setError("masukan password");
-                } else if (email.getText().toString().trim().length() == 0) {
-                    email.setError("masukan email");
+                String user = signupuser.getText().toString().trim();
+                String pass = signuppass.getText().toString().trim();
+                String gmail = signupemail.getText().toString().trim();
+
+                if (signupuser.getText().toString().trim().length() == 0) {
+                    signupuser.setError("masukan username");
+                } else if( signuppass.getText().toString().trim().length() == 0) {
+                    signuppass.setError("masukan password");
+                } else if (signupemail.getText().toString().trim().length() == 0) {
+                    signupemail.setError("masukan email");
                 }else {
-                    startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                    auth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(SignUpActivity.this, "Daftar Berhasil", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                            } else {
+                                Toast.makeText(SignUpActivity.this, "Daftar gagal" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
                 }
             }
         });
+
+
+
     }
 
     public void masukSekarang(View view){
