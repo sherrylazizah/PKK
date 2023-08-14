@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:278340281139:android:e2562191a572e3c983d446",
+        "mobilesdk_app_id": "1:278340281139:android:20e61d98259a83d983d446",
         "android_client_info": {
-          "package_name": "twoup.top4t.com"
+          "package_name": "twoup.tokoop4t.com"
         }
       },
       "oauth_client": [
