@@ -95,7 +95,7 @@
                 android:layout_toEndOf="@+id/viewPP"
                 android:background="@drawable/rec_grey"
                 android:hint="username"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="30dp"
                 android:paddingRight="10dp"
                 android:textColor="@color/black"
@@ -153,23 +153,37 @@
 
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btn_masuk"
-            android:onClick="signIn"
+        <TextView
+            android:id="@+id/forgot_password"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/rlPass"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="230dp"
+            android:layout_marginTop="5dp"
+            android:text="Forgot Password?"
+            android:textColor="@color/grey"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_masuk"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_below="@+id/forgot_password"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="100dp"
+            android:backgroundTint="@color/red"
             android:fontFamily="@font/lato_bold"
             android:hint="Masuk"
+            android:onClick="signIn"
             android:textAllCaps="false"
             android:textColorHint="@color/white"
-            android:backgroundTint="@color/red"
-            app:cornerRadius="23dp"/>
+            app:cornerRadius="23dp" />
 
         <RelativeLayout
             android:id="@+id/garis"
@@ -204,46 +218,36 @@
 
         <RelativeLayout
             android:id="@+id/btn_google1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:layout_below="@+id/garis"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp">
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="15dp">
 
-            <Button
-                android:id="@+id/btn_google"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/white"
-                app:cornerRadius="20dp"/>
+            <com.developer.gbuttons.GoogleSignInButton
+                android:id="@+id/googleBtn"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="55dp"
+                android:padding="8dp"
+                android:background="@drawable/rec_white"
+                app:isDarkTheme="true" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginEnd="160dp"
+                android:layout_marginBottom="18dp"
                 android:elevation="8dp">
-
-                <View
-                    android:id="@+id/vGGL"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:background="@drawable/ic_google" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/vGGL"
-                    android:layout_marginStart="8dp"
-                    android:layout_centerVertical="true"
-                    android:text="Goggle"
-                    android:textSize="14dp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/lato_regular"/>
 
             </RelativeLayout>
 

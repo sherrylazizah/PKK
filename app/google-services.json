@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278340281139",
+    "project_id": "top4t-signup",
+    "storage_bucket": "top4t-signup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278340281139:android:20e61d98259a83d983d446",
+        "android_client_info": {
+          "package_name": "twoup.tokoop4t.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278340281139-p3utj3hi79iumh21ti8qcqtqqled2j9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFuwVwL8IJOA7khhXNXY1K0oIU5H02kDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278340281139-p3utj3hi79iumh21ti8qcqtqqled2j9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
