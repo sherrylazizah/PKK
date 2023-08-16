@@ -9,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.gbuttons.GoogleSignInButton;
@@ -32,6 +36,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -48,6 +53,7 @@ public class SignInActivity extends AppCompatActivity {
     private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
     private boolean showOneTapUI = true;
     GoogleSignInButton googleBtn;
+    TextView forgotPassword;
 
 
     @Override
@@ -63,6 +69,7 @@ public class SignInActivity extends AppCompatActivity {
         masuk = (Button) findViewById(R.id.btn_masuk);
         signinuser = (EditText) findViewById(R.id.etUSER);
         signinpass = (EditText) findViewById(R.id.etPASS);
+        forgotPassword = (TextView) findViewById(R.id.forgot_password);
 
 
         masuk.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +160,51 @@ public class SignInActivity extends AppCompatActivity {
                                     Log.d("TAG" , e.getLocalizedMessage());
                                 }
                             });
+                }
+            });
+
+            forgotPassword.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SignInActivity.this);
+                    View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot, null);
+                    EditText emailBox = dialogView.findViewById(R.id.emailBoxFP);
+
+                    builder.setView(dialogView);
+                    AlertDialog dialog = builder.create();
+
+                    dialogView.findViewById(R.id.btnResetFP).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String userEmail = emailBox.getText().toString();
+
+                            if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+                                Toast.makeText(SignInActivity.this, "Masukkan email yang terdaftar", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            auth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(SignInActivity.this, "Cek email", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }else {
+                                        Toast.makeText(SignInActivity.this, "Ada yang salah, silahkan masukkan alamat email yang benar", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    dialogView.findViewById(R.id.btnCancelFP).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                    if (dialog.getWindow() != null){
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                    }
+                    dialog.show();
                 }
             });
     }
