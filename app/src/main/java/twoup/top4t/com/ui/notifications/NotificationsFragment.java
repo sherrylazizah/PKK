@@ -1,17 +1,25 @@
 package twoup.top4t.com.ui.notifications;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,14 +27,17 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import twoup.top4t.com.EditProfil;
 import twoup.top4t.com.Note;
 import twoup.top4t.com.Payment;
 import twoup.top4t.com.R;
+import twoup.top4t.com.TentangApp;
 import twoup.top4t.com.TransaksiFragment;
 import twoup.top4t.com.TransaksiFragment2;
 import twoup.top4t.com.TransaksiFragment3;
@@ -37,7 +48,7 @@ import twoup.top4t.com.ui.dashboard.DashboardViewModel;
 import twoup.top4t.com.ui.dashboard.NoteAdapter;
 import twoup.top4t.com.ui.home.HomeViewModel;
 
-public class NotificationsFragment extends Fragment {
+public class NotificationsFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener  {
 
     private FragmentNotificationsBinding binding;
 
@@ -56,6 +67,20 @@ public class NotificationsFragment extends Fragment {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+
+        Button button3 = root.findViewById(R.id.button3);
+
+
+        DrawerLayout drawer = root.findViewById(R.id.homeDrawer2);
+        drawer.setVisibility(View.VISIBLE);
+
+        NavigationView navigationView = root.findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -72,6 +97,13 @@ public class NotificationsFragment extends Fragment {
 
             }
         });
+        button3.setOnClickListener(view -> {
+            DrawerLayout navDrawer = root.findViewById(R.id.homeDrawer2);
+            // If the navigation drawer is not open then open it, if its already open then close it.
+            if(!navDrawer.isDrawerOpen(GravityCompat.START)) navDrawer.openDrawer(GravityCompat.START);
+            else navDrawer.closeDrawer(GravityCompat.END);
+        });
+
         return root;
     }
 
@@ -79,6 +111,30 @@ public class NotificationsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+        switch (item.getItemId()) {
+            case R.id.nav_editProfil:
+                Intent editProfileIntent = new Intent(getActivity(), EditProfil.class);
+                startActivity(editProfileIntent);
+                return true;
+
+            case R.id.nav_tentangApp:
+                Intent tentangAppIntent = new Intent(getActivity(), TentangApp.class);
+                startActivity(tentangAppIntent);
+                return true;
+
+            case R.id.nav_keluar:
+                Toast.makeText(requireContext(), "LogOut", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return false;
+        }
     }
 
 //    private List<Payment> payments = new ArrayList<>();
