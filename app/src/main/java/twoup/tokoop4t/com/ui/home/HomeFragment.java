@@ -1,4 +1,4 @@
-package twoup.top4t.com.ui.home;
+package twoup.tokoop4t.com.ui.home;
 
 import static android.widget.Toast.makeText;
 
@@ -26,13 +26,15 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import twoup.top4t.com.EditProfil;
-import twoup.top4t.com.R;
-import twoup.top4t.com.TentangApp;
-import twoup.top4t.com.atk;
-import twoup.top4t.com.atribut;
-import twoup.top4t.com.databinding.FragmentHomeBinding;
-import twoup.top4t.com.makanan;
+import twoup.tokoop4t.com.R;
+import twoup.tokoop4t.com.atk;
+import twoup.tokoop4t.com.atribut;
+import twoup.tokoop4t.com.databinding.FragmentHomeBinding;
+import twoup.tokoop4t.com.makanan;
+import twoup.tokoop4t.com.ui.home.HomeViewModel;
+import twoup.tokoop4t.com.EditProfil;
+import twoup.tokoop4t.com.TentangApp;
+
 
 public class HomeFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 

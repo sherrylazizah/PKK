@@ -1,4 +1,4 @@
-package twoup.top4t.com.ui.dashboard;
+package twoup.tokoop4t.com.ui.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,11 +28,14 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-import twoup.top4t.com.EditProfil;
-import twoup.top4t.com.Note;
-import twoup.top4t.com.R;
-import twoup.top4t.com.TentangApp;
-import twoup.top4t.com.databinding.FragmentDashboardBinding;
+import twoup.tokoop4t.com.Note;
+import twoup.tokoop4t.com.R;
+import twoup.tokoop4t.com.databinding.FragmentDashboardBinding;
+import twoup.tokoop4t.com.ui.dashboard.DashboardViewModel;
+import twoup.tokoop4t.com.ui.dashboard.NoteAdapter;
+import twoup.tokoop4t.com.EditProfil;
+import twoup.tokoop4t.com.TentangApp;
+
 
 public class DashboardFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener{
 

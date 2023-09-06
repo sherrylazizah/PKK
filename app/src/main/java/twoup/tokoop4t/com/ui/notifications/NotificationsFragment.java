@@ -1,4 +1,4 @@
-package twoup.top4t.com.ui.notifications;
+package twoup.tokoop4t.com.ui.notifications;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,46 +7,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import twoup.top4t.com.EditProfil;
-import twoup.top4t.com.Note;
-import twoup.top4t.com.Payment;
-import twoup.top4t.com.R;
-import twoup.top4t.com.TentangApp;
-import twoup.top4t.com.TransaksiFragment;
-import twoup.top4t.com.TransaksiFragment2;
-import twoup.top4t.com.TransaksiFragment3;
-import twoup.top4t.com.databinding.FragmentDashboardBinding;
-import twoup.top4t.com.databinding.FragmentHomeBinding;
-import twoup.top4t.com.databinding.FragmentNotificationsBinding;
-import twoup.top4t.com.ui.dashboard.DashboardViewModel;
-import twoup.top4t.com.ui.dashboard.NoteAdapter;
-import twoup.top4t.com.ui.home.HomeViewModel;
+import twoup.tokoop4t.com.R;
+import twoup.tokoop4t.com.TentangApp;
+import twoup.tokoop4t.com.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener  {
 
@@ -119,7 +96,7 @@ public class NotificationsFragment extends Fragment implements NavigationView.On
 
         switch (item.getItemId()) {
             case R.id.nav_editProfil:
-                Intent editProfileIntent = new Intent(getActivity(), EditProfil.class);
+                Intent editProfileIntent = new Intent(getActivity(), twoup.tokoop4t.com.EditProfil.class);
                 startActivity(editProfileIntent);
                 return true;
 
