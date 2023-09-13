@@ -22,4 +22,5 @@
         android:name="twoup.tokoop4t.com.ui.notifications.NotificationsFragment"
         android:label="@string/title_payment"
         tools:layout="@layout/fragment_notifications" />
+
 </navigation>

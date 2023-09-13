@@ -1,5 +1,6 @@
 package twoup.tokoop4t.com.ui.notifications;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
@@ -90,6 +92,7 @@ public class NotificationsFragment extends Fragment implements NavigationView.On
         binding = null;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -107,11 +110,18 @@ public class NotificationsFragment extends Fragment implements NavigationView.On
 
             case R.id.nav_keluar:
                 Toast.makeText(requireContext(), "LogOut", Toast.LENGTH_SHORT).show();
+                logout1();
                 return true;
 
             default:
                 return false;
         }
+
+    }
+
+    @SuppressLint("ResourceType")
+    private void logout1() {
+        Navigation.findNavController(requireView()).navigate(R.layout.activity_intro);
     }
 
 //    private List<Payment> payments = new ArrayList<>();

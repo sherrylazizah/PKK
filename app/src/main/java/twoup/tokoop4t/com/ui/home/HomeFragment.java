@@ -2,9 +2,12 @@ package twoup.tokoop4t.com.ui.home;
 
 import static android.widget.Toast.makeText;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +18,14 @@ import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import twoup.tokoop4t.com.R;
@@ -31,14 +33,14 @@ import twoup.tokoop4t.com.atk;
 import twoup.tokoop4t.com.atribut;
 import twoup.tokoop4t.com.databinding.FragmentHomeBinding;
 import twoup.tokoop4t.com.makanan;
-import twoup.tokoop4t.com.ui.home.HomeViewModel;
 import twoup.tokoop4t.com.EditProfil;
 import twoup.tokoop4t.com.TentangApp;
 
 
-public class HomeFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeFragment  extends Fragment implements NavigationView.OnNavigationItemSelectedListener  {
 
     private FragmentHomeBinding binding;
+    Button logout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
         toggle.syncState();
 
 //        if(savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_activity_main, new HomeFragment()).commit();
+//               getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_activity_main, new HomeFragment()).commit();
 //            navigationView.setCheckedItem();
 //        }
 
@@ -93,11 +95,13 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
         });
 
         return root;
+
     }
 
     private void setSupportActionBar(Toolbar toolbar) {
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -113,19 +117,29 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
                 return true;
 
             case R.id.nav_keluar:
-                Toast.makeText(requireContext(), "LogOut", Toast.LENGTH_SHORT).show();
+                makeText(requireContext(), "LogOut", Toast.LENGTH_SHORT).show();
+                logout2();
                 return true;
 
             default:
                 return false;
         }
+
     }
 
-
+    @SuppressLint("ResourceType")
+    private void logout2() {
+        Navigation.findNavController(requireView()).navigate(R.layout.activity_intro);
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }

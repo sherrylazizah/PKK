@@ -1,5 +1,6 @@
 package twoup.tokoop4t.com.ui.dashboard;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -152,10 +154,18 @@ public class DashboardFragment extends Fragment implements NavigationView.OnNavi
 
             case R.id.nav_keluar:
                 Toast.makeText(requireContext(), "LogOut", Toast.LENGTH_SHORT).show();
+                logout();
                 return true;
 
             default:
                 return false;
         }
+    }
+    @SuppressLint("ResourceType")
+    public void logout() {
+        // Perform logout tasks here, such as clearing session data, logging out from a server, etc.
+
+        // Navigate to the login screen or any other desired destination
+        Navigation.findNavController(requireView()).navigate(R.layout.activity_intro);
     }
 }
