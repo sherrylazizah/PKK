@@ -2,6 +2,7 @@ package twoup.tokoop4t.com.ui.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -141,6 +142,7 @@ public class DashboardFragment extends Fragment implements NavigationView.OnNavi
 
         switch (item.getItemId()) {
             case R.id.nav_editProfil:
+                Log.i("Success ", "Masuk ke sini" );
                 Intent editProfileIntent = new Intent(getActivity(), EditProfil.class);
                 startActivity(editProfileIntent);
                 return true;
